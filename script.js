@@ -8,7 +8,7 @@ function boardWidthMod() {
     let hasMod = false;
     let mod;
     while (!hasMod) {
-        for (let i = 10; i < 40; i++) {
+        for (let i = 8; i < 40; i++) {
             if (boardWidth % i === 0) {
                 hasMod = true;
                 mod = i;
@@ -121,13 +121,11 @@ clearBtn.addEventListener('click', clear);
 saveBtn.addEventListener('click', saveDraw);
 drawsBtn.addEventListener('click', redraw);
 
-// window.ondblclick = () => alert('Testando cuzão', 0);
-
 const alertContainer = document.getElementById('alert-container');
 let alertTimer = null;
 function alert(message, isSucess) {
-    if (alertContainer.childNodes.length < 5) {
-        if (alertContainer.childNodes.length === 4) message = "Vai com calma amg";
+    if (alertContainer.childNodes.length < 6) {
+        if (alertContainer.childNodes.length === 5) message = "Vai com calma amg";
         const alertDiv = document.createElement('div');
         alertDiv.classList.add('alert');
         alertDiv.style.display = 'block';

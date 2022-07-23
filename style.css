@@ -8,7 +8,7 @@
 :root {
     --square-width: 8px;
 
-    --board-width: min(900px, 100vw);
+    --board-width: min(900px, 98vw);
     --board-height: min(768px, calc(100vh - 160px));
 
     --battleshipGrey: #848C8E;
@@ -96,7 +96,7 @@ header {
 #alert-container {
     position: absolute;
     display: flex;
-    width: min(300px, 30vw);
+    width: min(300px, 80vw);
     /* height: fit-content; */
     justify-content: center;
     align-items: center;
