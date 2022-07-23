@@ -9,6 +9,9 @@
 
     --board-width: min(900px, 100vw);
     --board-height: min(768px, calc(100vh - 80px));
+
+    --board-color: ;
+    --paint-color: black;
 }
 
 body {
@@ -39,6 +42,9 @@ body {
     width: var(--square-width);
     height: var(--square-width);
 }
+.painted {
+    background-color: var(--paint-color);
+}
 
 input {
     display: none;
@@ -57,11 +63,13 @@ input {
     background-color: #d9deeb;
 
     height: 60px;
-    width: fit-content;
+    width: min(20vw);
+    width: min(calc(768px / 5), calc(100vw / 5));
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;;
     
     padding: 6px 12px;

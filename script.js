@@ -29,75 +29,63 @@ document.documentElement.style.setProperty('--board-width', `${boardWidth}px`);
 document.documentElement.style.setProperty('--board-height', `${boardHeight}px`);
 
 let allSquares = [];
-let row = 1;
-let column = 1;
 for (let i = 1; i <= squareNumber; i++) {
     const square = document.createElement('span');
-    allSquares.push(square);
     square.classList.add('square');
-    square.setAttribute('id', `${row}-${column}`);
     container.appendChild(square);
-
-    column++;
-    if (i % (boardWidth / squareWidth) === 0) {
-        row++;
-        column = 1;
-    }
+    allSquares.push(square);
 }
 
 const clearBtn = document.getElementById('clear');
-const drawsBtn = document.getElementById('draws');
 const saveBtn = document.getElementById('save');
+const drawsBtn = document.getElementById('draws');
 const eraserBtn = document.getElementById('eraser');
 const penBtn = document.getElementById('pen');
 
-let color = 'black';
 let painting = true;
 penBtn.addEventListener('click', () => {
-    color = 'black';
     painting = true;
 });
 eraserBtn.addEventListener('click', () => {
-    color = '';
     painting = false;
-});
-drawsBtn.addEventListener('click', () => {
-    color = 'black';
 });
 
 let painteds = [];
-let eraseds = [];
-let savedDraw = [];
+function savePainteds() {
+    let newPainteds = []
+    for (square of painteds) {
+        if (square.classList.contains('painted')) newPainteds.push(square);
+    }
+    painteds = newPainteds;
+}
+
 for (const square of allSquares) {
+    square.addEventListener('click', draw);
+
     window.addEventListener('mousedown', () => {
        square.addEventListener('mouseover', draw);
     });
-    square.addEventListener('click', draw);
-
     window.addEventListener('mouseup', () => {
-       square.removeEventListener('mouseover', draw);
+        square.removeEventListener('mouseover', draw);
     });
 
     function draw() {
-        square.style.backgroundColor = color;
         if (painting){
             painteds.push(square);
-            square.setAttribute('painted','');
+            square.classList.add('painted');
         }
         else {
-            if (square.hasAttribute) square.removeAttribute('painted');
+            if (square.hasAttribute) square.classList.remove('painted');
         }
+        savePainteds();
     };
 }
 
+let savedDraw = [];
 function saveDraw() {
-    savedDraw = [];
     if (painteds.length) {
-        for (const elem of painteds) {
-            if (elem.hasAttribute('painted')) {
-                savedDraw.push(elem);
-            }
-        }
+        savePainteds();
+        savedDraw = painteds;
         clear();
     }
     else {
@@ -105,11 +93,10 @@ function saveDraw() {
     }
 }
 function redraw() {
-    // console.info(savedDraw);
     if (savedDraw.length) {
         clear();
         for (const square of savedDraw) {
-            square.style.backgroundColor = color;
+            square.classList.add('painted');
         };
         painteds = savedDraw;
     }
@@ -119,7 +106,7 @@ function redraw() {
 }
 function clear() {
     for (const square of painteds) {
-        square.style.backgroundColor = '';
+        square.classList.remove('painted');
     }
     painteds = [];
 }
@@ -132,7 +119,9 @@ saveBtn.addEventListener('click', saveDraw);
 drawsBtn.addEventListener('click', redraw);
 
 
-
+window.addEventListener('dblclick', () => {
+    console.info(painteds);
+});
 
 
 
