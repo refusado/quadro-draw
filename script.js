@@ -90,9 +90,10 @@ function saveDraw() {
         savePainteds();
         savedDraw = painteds;
         clear();
+        alert('Desenho salvo com sucesso!', 1);
     }
     else {
-        console.error('não tem nada para salvar aí não maluquinho');
+        alert('Não há desenho para ser salvo', 0);
     }
 }
 function redraw() {
@@ -102,9 +103,10 @@ function redraw() {
             square.classList.add('painted');
         };
         painteds = savedDraw;
+        alert('Desenho restaurado!', 1);
     }
     else {
-        console.error('não tem desenho salvo não seu doido');
+        alert('Não há desenhos salvos', 0);
     }
 }
 function clear() {
@@ -112,10 +114,32 @@ function clear() {
         square.classList.remove('painted');
     }
     painteds = [];
+    alert('Quadro limpo!', 1);
 }
 
 clearBtn.addEventListener('click', clear);
 saveBtn.addEventListener('click', saveDraw);
 drawsBtn.addEventListener('click', redraw);
 
-window.ondblclick = () => console.log(painteds);
+// window.ondblclick = () => alert('Testando cuzão', 0);
+
+const alertContainer = document.getElementById('alert-container');
+let alertTimer = null;
+function alert(message, isSucess) {
+    if (alertContainer.childNodes.length < 5) {
+        if (alertContainer.childNodes.length === 4) message = "Vai com calma amg";
+        const alertDiv = document.createElement('div');
+        alertDiv.classList.add('alert');
+        alertDiv.style.display = 'block';
+        alertDiv.innerText = message;
+
+        if (isSucess) alertDiv.classList.add('sucess');
+        else alertDiv.classList.add('error');
+
+        alertContainer.appendChild(alertDiv);
+
+        alertTimer = setTimeout(() => {
+            alertContainer.removeChild(alertDiv);
+        }, 2000);
+    }
+}

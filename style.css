@@ -17,6 +17,8 @@
     --paleSilver: #BFB7B6 ;
     --cultured: #F1F2EE ;
 
+    --sucess-color: #044389 ;
+    --error-color: #c43e2f ;
     --shadow: #2e001463;
 
     --board-color: var(--cultured);
@@ -34,6 +36,42 @@ body {
     background: linear-gradient(180deg, var(--paleSilver) 33%,
     var(--battleshipGrey) 33%); 
 }
+
+header {
+    width: var(--board-width);
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: flex-start;
+    
+    gap: 10px;
+    z-index: 1;
+}
+.header-btn {
+    height: 50px;
+    width: min(50px, 30vw);
+    padding: 10px;
+
+    background-color: var(--cultured);
+    border: none;
+    border-radius: 5px 5px 0 0;
+
+    cursor: pointer;
+    transition: 200ms ease-out;
+}
+.header-btn:nth-last-child(1) {
+    margin-left: auto;
+    background-color: #c43e2f;
+}
+.header-btn:hover {
+    filter: brightness(0.95);
+}
+.header-btn img {
+    height: 100%;
+    max-width: 100%;
+    filter: drop-shadow(0 0 8px #f1f2ee70);
+}
+
 
 #board {
     background-color: var(--board-color);
@@ -53,6 +91,54 @@ body {
 }
 .painted {
     background-color: var(--paint-color);
+}
+
+#alert-container {
+    position: absolute;
+    display: flex;
+    width: min(300px, 30vw);
+    /* height: fit-content; */
+    justify-content: center;
+    align-items: center;
+}
+.alert {
+    display: none;
+    background-color: #f1f2eeee;
+    position: absolute;
+    padding: 20px;
+
+    border: 1px solid var(--paleSilver);
+    border-radius: 5px;
+    box-shadow: 0 2px 35px -12px #2e001441;
+
+    text-align: center;
+    animation: alert-show 2000ms forwards;
+}
+.sucess {
+    color: var(--sucess-color);
+}
+.error {
+    color: var(--error-color);
+}
+@keyframes alert-show {
+    0% {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    17% {
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+    27% {
+        transform: translateY(0px);
+    }
+    99% {
+        opacity: 1;
+    }
+    100% {
+        display: none;
+        /* opacity: 0; */
+    }
 }
 
 #tools {
@@ -81,11 +167,12 @@ body {
     transform-origin: top;
 }
 .tools-input:checked + .tools-label {
-    box-shadow: inset 0 0 40px -20px var(--shadow);
+    box-shadow: inset 0 0 40px -20px #2e001463;
     transform: scale(0.9);
     cursor: default;
 }
 .tools-label img {
     height: 100%;
     max-width: 100%;
+    filter: drop-shadow(0 0 14px #2e0014a7);
 }

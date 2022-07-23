@@ -9,17 +9,18 @@
 </head>
 <body>
     <header id="menu">
-        <button id="clear" class="">
-            <img src="./img/clear.svg" alt="Clear">
-        </button>
-        <button id="save" class="">
+        <button id="save" class="header-btn">
             <img src="./img/save.svg" alt="Save">
         </button>
-        <button id="draws" class="">
+        <button id="draws" class="header-btn">
             <img src="./img/draw.svg" alt="Draws">
+        </button>
+        <button id="clear" class="header-btn">
+            <img src="./img/clear.svg" alt="Clear">
         </button>
     </header>
     <main id="board"></main>
+    <div id="alert-container"></div>
     <footer id="tools">
         <input hidden type="radio" name="tool" id="eraser-input" class="tools-input"/>
         <label id="eraser" for="eraser-input" class="tools-label">
@@ -30,7 +31,6 @@
         <label id="pen" for="pen-input" class="tools-label">
             <img src="./img/pen.svg" alt="Pencil">
         </label>
-
     </footer>
     <script src="./script.js"></script>
 </body>
