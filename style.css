@@ -3,15 +3,24 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    user-select: none;
 }
 :root {
     --square-width: 8px;
 
     --board-width: min(900px, 100vw);
-    --board-height: min(768px, calc(100vh - 80px));
+    --board-height: min(768px, calc(100vh - 160px));
 
-    --board-color: ;
-    --paint-color: black;
+    --battleshipGrey: #848C8E;
+    --charcoal: #435058 ;
+    --darkSienna: #2E0014 ;
+    --paleSilver: #BFB7B6 ;
+    --cultured: #F1F2EE ;
+
+    --shadow: #2e001463;
+
+    --board-color: var(--cultured);
+    --paint-color: var(--darkSienna);
 }
 
 body {
@@ -22,12 +31,13 @@ body {
     align-items: center;
     flex-flow: column nowrap;
 
-    background-color: #045a49;
+    background: linear-gradient(180deg, var(--paleSilver) 33%,
+    var(--battleshipGrey) 33%); 
 }
 
 #board {
-    background-color: #d9deeb;
-    box-shadow: 0 3px 40px -15px #0208374d;
+    background-color: var(--board-color);
+    box-shadow: 0 2px 35px -12px var(--shadow);
     border-radius: 5px;
 
     display: flex;
@@ -38,7 +48,6 @@ body {
 }
 
 .square {
-    display: inline-block;
     width: var(--square-width);
     height: var(--square-width);
 }
@@ -46,42 +55,37 @@ body {
     background-color: var(--paint-color);
 }
 
-input {
-    display: none;
-}
-
 #tools {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    user-select: none;
 }
 .tools-label {
-    position: relative;
-    bottom: 0;
-    background-color: #d9deeb;
+    background-color: var(--cultured);
 
     height: 60px;
-    width: min(20vw);
-    width: min(calc(768px / 5), calc(100vw / 5));
+    width: min(80px, 40vw);
+    padding: 10px;
+    margin: 0 4px;
+
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     align-items: center;
-    font-size: 14px;
-    font-weight: bold;;
     
-    padding: 6px 12px;
-    /* border: none; */
-    border-radius: 0 0 5px 5px;
+    padding: 14px;
+    border-radius: 0 0 6px 6px;
     outline: none;
 
     cursor: pointer;
-    transition: 100ms;
+    transition: 200ms ease-out;
     transform-origin: top;
 }
 .tools-input:checked + .tools-label {
-    box-shadow: inset 0 0px 16px -8px #1f1f1fa5;
-    transform: scale(0.991);
+    box-shadow: inset 0 0 40px -20px var(--shadow);
+    transform: scale(0.9);
+    cursor: default;
+}
+.tools-label img {
+    height: 100%;
+    max-width: 100%;
 }

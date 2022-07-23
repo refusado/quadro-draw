@@ -1,3 +1,4 @@
+window.ondragstart = (e) => e.preventDefault(); 
 const container = document.getElementById('board');
 
 let boardWidth = Math.floor(container.clientWidth);
@@ -39,14 +40,20 @@ for (let i = 1; i <= squareNumber; i++) {
 const clearBtn = document.getElementById('clear');
 const saveBtn = document.getElementById('save');
 const drawsBtn = document.getElementById('draws');
+
+const eraserInput = document.getElementById('eraser-input');
 const eraserBtn = document.getElementById('eraser');
+
+const penInput = document.getElementById('pen-input');
 const penBtn = document.getElementById('pen');
 
 let painting = true;
 penBtn.addEventListener('click', () => {
+    penInput.checked = true;
     painting = true;
 });
 eraserBtn.addEventListener('click', () => {
+    eraserInput.checked = true;
     painting = false;
 });
 
@@ -62,12 +69,8 @@ function savePainteds() {
 for (const square of allSquares) {
     square.addEventListener('click', draw);
 
-    window.addEventListener('mousedown', () => {
-       square.addEventListener('mouseover', draw);
-    });
-    window.addEventListener('mouseup', () => {
-        square.removeEventListener('mouseover', draw);
-    });
+    window.addEventListener('mousedown', () => square.addEventListener('mouseover', draw));
+    window.addEventListener('mouseup', () => square.removeEventListener('mouseover', draw));
 
     function draw() {
         if (painting){
@@ -75,7 +78,7 @@ for (const square of allSquares) {
             square.classList.add('painted');
         }
         else {
-            if (square.hasAttribute) square.classList.remove('painted');
+            square.classList.remove('painted');
         }
         savePainteds();
     };
@@ -111,30 +114,8 @@ function clear() {
     painteds = [];
 }
 
-
 clearBtn.addEventListener('click', clear);
-
 saveBtn.addEventListener('click', saveDraw);
-
 drawsBtn.addEventListener('click', redraw);
 
-
-window.addEventListener('dblclick', () => {
-    console.info(painteds);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-container.addEventListener('dragstart', (e) => {
-    e.preventDefault();
-});
+window.ondblclick = () => console.log(painteds);

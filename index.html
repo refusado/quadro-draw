@@ -8,17 +8,28 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <header id="menu">
+        <button id="clear" class="">
+            <img src="./img/clear.svg" alt="Clear">
+        </button>
+        <button id="save" class="">
+            <img src="./img/save.svg" alt="Save">
+        </button>
+        <button id="draws" class="">
+            <img src="./img/draw.svg" alt="Draws">
+        </button>
+    </header>
     <main id="board"></main>
     <footer id="tools">
-        <label id="clear" class="tools-label">CLEAR</label>
-        <label id="save" class="tools-label">SAVE</label>
-        <label id="draws" class="tools-label">DRAWS</label>
+        <input hidden type="radio" name="tool" id="eraser-input" class="tools-input"/>
+        <label id="eraser" for="eraser-input" class="tools-label">
+            <img src="./img/eraser.svg" alt="Eraser">
+        </label>
 
-        <input type="radio" name="tool" id="eraser-input" class="tools-input"/>
-        <label id="eraser" for="eraser-input" class="tools-label">ERASER</label>
-
-        <input type="radio" name="tool" id="pen-input" class="tools-input" checked/>
-        <label id="pen" for="pen-input" class="tools-label">PENCIL</label>
+        <input hidden type="radio" name="tool" id="pen-input" class="tools-input" checked/>
+        <label id="pen" for="pen-input" class="tools-label">
+            <img src="./img/pen.svg" alt="Pencil">
+        </label>
 
     </footer>
     <script src="./script.js"></script>
