@@ -5,31 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Justdraw</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <header id="menu">
-        <button title="Save" id="save" class="header-btn">
-            <img src="./img/save.svg" alt="Save">
+        <button title="Clear" id="clear" class="header-btn board-btn">
+            <img src="./img/icons/clear.svg" alt="Clear">
         </button>
-        <button title="Draws" id="draws" class="header-btn">
-            <img src="./img/draw.svg" alt="Draws">
+        <button title="Save" id="save" class="header-btn board-btn">
+            <img src="./img/icons/save.svg" alt="Save">
         </button>
-        <button title="Clear" id="clear" class="header-btn">
-            <img src="./img/clear.svg" alt="Clear">
+        <button title="Draws" id="draws" class="header-btn board-btn">
+            <img src="./img/icons/draw.svg" alt="Draws">
         </button>
     </header>
     <main id="board"></main>
     <div id="alert-container"></div>
     <footer id="tools">
         <input hidden type="radio" name="tool" id="eraser-input" class="tools-input"/>
-        <label title="Eraser" id="eraser" for="eraser-input" class="tools-label">
-            <img src="./img/eraser.svg" alt="Eraser">
+        <label title="Eraser" id="eraser" for="eraser-input" class="tools-label board-btn">
+            <img src="./img/icons/eraser.svg" alt="Eraser">
         </label>
 
         <input hidden type="radio" name="tool" id="pen-input" class="tools-input" checked/>
-        <label title="Pencil" id="pen" for="pen-input" class="tools-label">
-            <img src="./img/pen.svg" alt="Pencil">
+        <label title="Pencil" id="pen" for="pen-input" class="tools-label board-btn">
+            <img src="./img/icons/pen.svg" alt="Pencil">
         </label>
     </footer>
     <script src="./script.js"></script>

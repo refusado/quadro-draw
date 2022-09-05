@@ -33,6 +33,7 @@ body {
     align-items: center;
     flex-flow: column nowrap;
 
+    background: var(--battleshipGrey);
     background: linear-gradient(180deg, var(--paleSilver) 33%,
     var(--battleshipGrey) 33%); 
 }
@@ -47,21 +48,28 @@ header {
     gap: 10px;
     z-index: 1;
 }
-.header-btn {
+.board-btn {
     height: 50px;
     width: min(50px, 30vw);
     padding: 10px;
 
     background-color: var(--cultured);
     border: none;
-    border-radius: 5px 5px 0 0;
 
     cursor: pointer;
     transition: 200ms ease-out;
+    transform-origin: top;
+    outline: none;
 }
-.header-btn:nth-last-child(1) {
+
+.header-btn {
+    border-radius: .15rem .15rem 0 0;
+}
+.header-btn#clear {
+    background-color: #2E0014;
+}
+.header-btn:nth-last-child(2) {
     margin-left: auto;
-    background-color: #c43e2f;
 }
 .header-btn:hover {
     filter: brightness(0.95);
@@ -74,9 +82,9 @@ header {
 
 
 #board {
-    background-color: var(--board-color);
-    box-shadow: 0 2px 35px -12px var(--shadow);
-    border-radius: 5px;
+    background: var(--board-color);
+    box-shadow: 0 0 5px -1px #000000a8;
+    border-radius: .25rem;
 
     display: flex;
     flex-flow: row wrap;
@@ -97,7 +105,7 @@ header {
     position: absolute;
     display: flex;
     width: min(300px, 80vw);
-    /* height: fit-content; */
+    height: fit-content;
     justify-content: center;
     align-items: center;
 }
@@ -142,29 +150,15 @@ header {
 }
 
 #tools {
+    width: var(--board-width);
+    padding: 0 20px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    gap: 6px;
 }
 .tools-label {
-    background-color: var(--cultured);
-
-    height: 60px;
-    width: min(80px, 40vw);
-    padding: 10px;
-    margin: 0 4px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    padding: 14px;
-    border-radius: 0 0 6px 6px;
-    outline: none;
-
-    cursor: pointer;
-    transition: 200ms ease-out;
-    transform-origin: top;
+    border-radius: 0 0 .15rem .15rem;
 }
 .tools-input:checked + .tools-label {
     box-shadow: inset 0 0 40px -20px #2e001463;

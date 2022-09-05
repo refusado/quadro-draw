@@ -90,7 +90,7 @@ function saveDraw() {
         savePainteds();
         savedDraw = painteds;
         clear();
-        alert('Desenho salvo com sucesso!', 1);
+        alert('Desenho salvo', 1);
     }
     else {
         alert('Não há desenho para ser salvo', 0);
@@ -103,7 +103,7 @@ function redraw() {
             square.classList.add('painted');
         };
         painteds = savedDraw;
-        alert('Desenho restaurado!', 1);
+        alert('Desenho restaurado', 1);
     }
     else {
         alert('Não há desenhos salvos', 0);
@@ -114,7 +114,7 @@ function clear() {
         square.classList.remove('painted');
     }
     painteds = [];
-    alert('Quadro limpo!', 1);
+    alert('Quadro limpo', 1);
 }
 
 clearBtn.addEventListener('click', clear);
@@ -125,7 +125,7 @@ const alertContainer = document.getElementById('alert-container');
 let alertTimer = null;
 function alert(message, isSucess) {
     if (alertContainer.childNodes.length < 6) {
-        if (alertContainer.childNodes.length === 5) message = "Vai com calma amg";
+        if (alertContainer.childNodes.length === 6) message = "Vai com calma! Muitas requisições";
         const alertDiv = document.createElement('div');
         alertDiv.classList.add('alert');
         alertDiv.style.display = 'block';
