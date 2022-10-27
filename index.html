@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Justdraw</title>
+    <title>Quadro draw</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <header id="menu">
-        <button title="Clear" id="clear" class="header-btn board-btn">
-            <img src="./img/icons/clear.svg" alt="Clear">
+        <button title="Limpar quadro" id="clear" class="header-btn board-btn">
+            <img src="./assets/icons/clear.svg" alt="Limpar quadro">
         </button>
-        <button title="Save" id="save" class="header-btn board-btn">
-            <img src="./img/icons/save.svg" alt="Save">
+        <button title="Salvar desenho atual" id="save" class="header-btn board-btn">
+            <img src="./assets/icons/save.svg" alt="Salvar desenho atual">
         </button>
-        <button title="Draws" id="draws" class="header-btn board-btn">
-            <img src="./img/icons/draw.svg" alt="Draws">
+        <button title="Restaurar o desenho salvo" id="draws" class="header-btn board-btn">
+            <img src="./assets/icons/draw.svg" alt="Restaurar o desenho salvo">
         </button>
     </header>
     <main id="board"></main>
     <div id="alert-container"></div>
     <footer id="tools">
         <input hidden type="radio" name="tool" id="eraser-input" class="tools-input"/>
-        <label title="Eraser" id="eraser" for="eraser-input" class="tools-label board-btn">
-            <img src="./img/icons/eraser.svg" alt="Eraser">
+        <label title="Borracha" id="eraser" for="eraser-input" class="tools-label board-btn">
+            <img src="./assets/icons/eraser.svg" alt="Borracha">
         </label>
 
         <input hidden type="radio" name="tool" id="pen-input" class="tools-input" checked/>
-        <label title="Pencil" id="pen" for="pen-input" class="tools-label board-btn">
-            <img src="./img/icons/pen.svg" alt="Pencil">
+        <label title="Pincel" id="pen" for="pen-input" class="tools-label board-btn">
+            <img src="./assets/icons/pen.svg" alt="Pincel">
         </label>
     </footer>
     <script src="./script.js"></script>

@@ -67,6 +67,7 @@ header {
 }
 .header-btn#clear {
     background-color: #2E0014;
+    padding: 12px;
 }
 .header-btn:nth-last-child(2) {
     margin-left: auto;
